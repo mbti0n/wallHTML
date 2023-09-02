@@ -87,4 +87,7 @@ content="width=device-width, initial-scale=1">
 ![image](https://github.com/mbti0n/wallHTML/assets/105599214/f3ab1bfb-3fc0-4213-a090-3e559d4cd616)
 
 ### MacBook Air 13" M2
-13.6", 
+13.6", 1710x1112 (notched, using TopNotch to hide the notch with a black area)
+
+<img width="1710" alt="image" src="https://github.com/mbti0n/wallHTML/assets/105599214/a3f6cb19-f91d-497e-9415-dc3fdf9ac2f6">
+
