@@ -75,6 +75,67 @@ content="width=device-width, initial-scale=1">
 </html>
 ```
 
+## Parts of my Python code
+### Set as desktop and logon wallpaper (macOS, tested on Ventura)
+```python
+html_file_path = {html_file_path}
+output_image_path = {output_path}
+# Configure the output image resolution
+options = {
+    'format': 'jpg',
+    'width': 5120,  # Specify the desired width of the image
+    'height': 2880,  # Specify the desired height of the image
+}
+
+# Convert the HTML file to an image
+imgkit.from_file(html_file_path, output_image_path, options=options)
+
+# Path to the image you want to set as the wallpaper
+
+image_path = {path_to_the_image}
+
+# AppleScript command to set wallpaper
+applescript_cmd = f'''
+tell application "System Events"
+    tell current desktop
+        set picture to "{image_path}"
+    end tell
+end tell
+'''
+
+# Execute the command
+os.system(f"osascript -e '{applescript_cmd}'")
+```
+
+### Set as desktop wallpaper (Windows 10/11)
+```python
+# Configure the output image resolution
+options = {
+    'format': 'jpg',
+    'width': 5120,  # Image width
+    'height': 2880,  # Image height
+}
+
+# Convert the HTML file to an image
+imgkit.from_file(html_file_path_windows, output_image_path_windows, options=options)
+
+SPI_SETDESKWALLPAPER = 20
+WALLPAPER_PATH = {path_to_your_wallpaper}  # Replace with the actual path to your wallpaper image
+
+# Set the wallpaper
+def set_wallpaper():
+    ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, WALLPAPER_PATH, 3)
+
+if __name__ == '__main__':
+    set_wallpaper()
+```
+### Set as lock screen wallpaper (Windows 10/11)
+```python
+os.system (f"cmd /k \"cd {path of wallHTML.py} & igcmdWin10.exe setlockimage \"{WALLPAPER_PATH}\" & exit\"")
+```
+Make sure to replace the directory for the code to your corresponding directory for `igcmdWin10.exe` and `wallHTML.py`. `igcmdWin10.exe` must be in the same folder as `wallHTML.py`.
+
+
 ## Output
 ### HP Laptop 14-ck0xxx
 14", 1366x768
